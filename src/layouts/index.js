@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link, navigate, StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { SocialIcon } from 'react-social-icons';
 import Swipeable from 'react-swipeable';
+
 import Transition from '../components/transition';
 
 import './index.css';
@@ -58,9 +60,12 @@ class TemplateWrapper extends Component {
 
     return (
       <div>
-        <Helmet
-          title={`${site.siteMetadata.title} — ${site.siteMetadata.name}`}
+        <Helmet title={`${site.siteMetadata.name}`}>
+          <link
+            rel="stylesheet"
+            href="https://code.cdn.mozilla.net/fonts/fira.css"
         />
+        </Helmet>
         <Header
           name={site.siteMetadata.name}
           title={site.siteMetadata.title}
@@ -71,7 +76,9 @@ class TemplateWrapper extends Component {
           onSwipedRight={this.swipeRight}
         >
           <Transition location={location}>
-            <div id="slide" style={{'width': '100%'}}>{children}</div>
+            <div id="slide" style={{ width: '100%' }}>
+              {children}
+            </div>
           </Transition>
         </Swipeable>
       </div>

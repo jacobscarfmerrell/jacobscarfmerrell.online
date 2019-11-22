@@ -160,3 +160,7 @@ header a:hover {
 header span {
   color: var(--text);
 }
+
+header .socials {
+  margin: 0.25rem;
+}

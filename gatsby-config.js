@@ -1,6 +1,10 @@
 module.exports = {
   siteMetadata: {
     name: `jacob scarf merrell`,
+    socialUrls: [
+      `http://github.com/jacobscarfmerrell`,
+      `http://linkedin.com/in/jacobscarfmerrell`
+    ],
   },
   plugins: [
     `gatsby-plugin-layout`,

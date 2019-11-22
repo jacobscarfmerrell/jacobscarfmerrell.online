@@ -9,12 +9,14 @@ import Transition from '../components/transition';
 
 import './index.css';
 
-const Header = ({ name, title, date }) => (
+const Header = ({ name, socialUrls }) => (
   <header>
-    <Link to="/1">
-      <span>{name}</span> — {title}
-    </Link>
-    <time>{date}</time>
+    <Link to="/1">{name}</Link>
+    <div>
+      {socialUrls.map(url => (
+        <SocialIcon bgColor="#333" className="socials" url={url} />
+      ))}
+    </div>
   </header>
 );
 
@@ -64,12 +66,11 @@ class TemplateWrapper extends Component {
           <link
             rel="stylesheet"
             href="https://code.cdn.mozilla.net/fonts/fira.css"
-        />
+          />
         </Helmet>
         <Header
           name={site.siteMetadata.name}
-          title={site.siteMetadata.title}
-          date={site.siteMetadata.date}
+          socialUrls={site.siteMetadata.socialUrls}
         />
         <Swipeable
           onSwipedLeft={this.swipeLeft}
@@ -98,8 +99,7 @@ export default props => (
         site {
           siteMetadata {
             name
-            title
-            date
+            socialUrls
           }
         }
         allSlide {
